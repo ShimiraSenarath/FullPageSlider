@@ -1,0 +1,404 @@
+// Main
+::selection {
+    background: $white;   
+    color: $white;
+}
+::-moz-selection {
+    background: $white;    
+    color: $white;
+}
+
+body {
+    background: $white; 
+    padding: 0;
+    margin: 0 auto;
+    font-family: 'Yantramanav', Arial, sans-serif;
+    color: $black; 
+}
+
+article,
+aside,
+details,
+figcaption,
+footer,
+header,
+hgroup,
+nav,
+section {
+    display: block;
+}
+
+a {
+    color: $blue;
+    text-decoration: none;
+}
+
+menu,
+ol,
+ul {
+    padding: 0 !important;
+}
+
+button {
+    background: transparent;
+    border: none;
+}
+
+button:focus {
+    outline: none;
+}
+
+section {
+    position: relative;
+}
+
+// Typography
+h1, h2, h3, p {
+    margin: 0;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: $large;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: $large;
+}
+
+h3 {
+    font-size: $medium;
+}
+
+p {
+    font-size: $exsmall;
+}
+
+@media (max-width: $tablet) {
+    h1, h2 {
+        font-size: $medium;
+    }
+
+    h3 {
+        font-size: $small;
+    }
+}
+
+//Opacity Change
+.second-page{
+    opacity: 0.5;
+    
+}
+.second-page.active{
+    opacity: 1; 
+    transition: opacity 5s;
+}
+// Logo
+.logo {
+    position: absolute;
+    top: 17px;
+    left: 17px;
+    z-index: 4;
+    border: 2px solid $white;
+    padding: 0 40px;
+    color: $white;
+    line-height: 40px;
+    text-transform: uppercase;
+
+    &.dark {
+        border-color: $black;
+        color: $black;
+    }
+}
+
+// link-wrapper Link
+.link-wrapper {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    z-index: 3;
+    color: $white;
+    text-transform: uppercase;
+    @include transition;
+
+    &::before{
+        content: "";
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: $white;
+        height: 1px;
+        @include transition;
+    }
+
+    &#{$mouse-interaction} {
+        color: $blue;
+        &::before{
+            right: 100%;
+            background: $blue;
+        }
+    }
+
+    
+}
+
+// Video
+video {
+    object-fit: cover;
+    @include fullwidth;
+}
+
+.container.video-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    height: 100vh;
+    width: 100vw;
+    
+    .video-content {
+        height: 100vh;
+        position: absolute;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+    
+        &::after {
+            background: $white;
+            content: '';
+            left: 0;
+            opacity: 0.3;
+            position: absolute;
+            top: 0;
+            z-index: 1;        
+            @include fullwidth;
+        }
+    }
+}
+
+
+// Carousel
+.carousel-wrapper{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: flex-end;
+
+    .carousel-block {
+        width: 60%;
+        position: relative;
+    
+        h2 {
+            color: $white;
+            text-align: right;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+    
+        .swiper-slide {
+            background: $transparentWhite;
+            padding: 20px;
+            border-top-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            height: 200px;
+    
+            h3 {
+                margin-bottom: 30px;
+            }
+        }
+    
+        .carouselNext {
+            width: 50px;
+            height: 72px;
+            position: absolute;
+            top: 50%;
+            right: -60px;
+            transform: translate(0%, -50%);
+            cursor: pointer;
+            @include transition;
+            z-index: 99;
+            &::after {
+                content: url('../../public/images/carousel-arrow.png')
+            }
+    
+            &#{$mouse-interaction} {
+                right: -70px;
+            }
+        }
+    
+        @media (max-width: $tablet) {
+            width: 80%;
+    
+            .carouselNext {
+                right: -50px;
+    
+                &#{$mouse-interaction} {
+                    right: -55px;
+                }
+            }
+        }
+    }
+    .carousel-end{
+        width: 15%;
+        background: $light-black;
+        position: relative;
+        top: 13%;
+        height: 275px;
+    }
+}
+
+
+// Background Image
+.background-image {
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include fullwidth;
+}
+
+// Menu
+#fp-nav.fp-right {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+    z-index: 4;
+    width: 70px;
+    ul {
+        list-style: none;
+
+        li {
+            margin: 0 0 10px 0;
+            float: right;
+            width: 100%;
+            cursor: pointer;
+
+            a {
+                width: 50px;
+                height: 10px;
+                background: $gray;
+                display: block;
+                float: right;
+                @include transition;
+                span {
+                    display: none;
+                }
+
+                &.active {
+                    width: 70px;
+                    background: $blue;
+                }
+            }
+        }
+    }
+
+    @media (max-width: $tablet) {
+        top: 95%;
+        right: 5%;
+    }
+}
+
+// Component styles
+.section {
+    display: flex !important;
+    overflow: hidden;
+    min-height: 100vh;
+
+    .video-content,
+    picture img {
+        @include animation;
+        transform: scale(1.7);
+    }
+
+    &.active {
+        .video-content,
+        picture img {
+            transform: scale(1);
+        }
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // position: relative;
+    z-index: 2;    
+    @include fullwidth;
+}
+
+.video-content {
+    color: $gray;
+
+    h2 {
+        margin-bottom: 30px;        
+        @include highlighted;
+    }
+
+    p {
+        width: 50%;
+        color: $gray;
+        text-align: center;
+    }
+}
+
+.slidingArrow {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    top: 100%;
+    left: 50%;
+    z-index: 5;
+    transform: translate(-50%, -100px);
+    cursor: pointer;
+    animation: sliderArrowMove 3s infinite;
+
+    &::after {
+        content: url('../../public/images/carousel-arrow.png');
+        transform: rotate(90deg);
+        display: block;
+    }
+
+    &#{$mouse-interaction} {
+        opacity: 1;
+        animation-play-state: paused;
+    }
+}
+
+@keyframes sliderArrowMove {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -100px);
+    }
+    100% {
+        opacity: 0.2;
+        transform: translate(-50%, -70px);
+    }
+}
+
+.fp-is-overflow {
+    .fp-overflow{
+        .fp-auto-height,
+        .fp-auto-height-responsive{
+            overflow-y: initial;
+        }
+    }
+}
+
+.fp-is-overflow>.fp-overflow{
+    overflow-y: initial;
+}
+
+//Watermark Hide
+.second-page{
+    .fp-watermark{
+        display: none;
+    }
+}

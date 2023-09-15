@@ -1,0 +1,60 @@
+[
+    {
+        "pageName": "first-page",
+        "themeColor": "white",
+        "hasUrlLink": false,
+        "urlLink": {},
+        "hasVideo": true,
+        "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+        "imageUrl": "",
+        "header": "Lorem ipsum dolor",
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.",
+        "hasCarousel": false,
+        "carousel": []
+    },
+    {
+        "pageName": "second-page",
+        "themeColor": "black",
+        "hasUrlLink": true,
+        "urlLink": {
+            "link": "https://www.google.com/",
+            "text": "discover more"
+        },
+        "hasVideo": false,
+        "videoUrl": "",
+        "imageUrl": {
+            "desktop": "../images/img-1920x1200.jpg",
+            "tablet": "../images/img-1280x800.jpg",
+            "mobile": "../images/img-800x368.jpg"
+        },
+        "header": "donec nec justo",
+        "description": "",
+        "hasCarousel": true,
+        "carousel": [
+            {
+                "title": "Lorem ipsum #1",
+                "text": "Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci."
+            },
+            {
+                "title": "Lorem ipsum #2",
+                "text": "Aenean dignissim pellentesque felis sed egestas, ante et vulputate volutpat."
+            },
+            {
+                "title": "Lorem ipsum #3",
+                "text": "Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci."
+            },
+            {
+                "title": "Lorem ipsum #4",
+                "text": "Aenean dignissim pellentesque felis sed egestas, ante et vulputate volutpat."
+            },
+            {
+                "title": "Lorem ipsum #5",
+                "text": "Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci."
+            },
+            {
+                "title": "Lorem ipsum #6",
+                "text": "Aenean dignissim pellentesque felis sed egestas, ante et vulputate volutpat."
+            }
+        ]
+    }
+]
